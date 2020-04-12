@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+/.idea
+*.pyc
+/pyhive.egg-info
+/dist
+/build
+npm-debug.log
+/test
+/tests
+install.sh
