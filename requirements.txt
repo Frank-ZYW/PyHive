@@ -1,0 +1,8 @@
+jinja2
+requests
+beautifulsoup4
+scrapy>=1.6
+django==2.2.5
+django-cors-headers==3.2.1
+python-scrapyd-api==2.1.2
+djangorestframework==3.11.0

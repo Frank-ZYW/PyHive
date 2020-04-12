@@ -1,0 +1,37 @@
+from django.urls import path
+from rest_framework.authtoken import views as auth
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('user/auth', auth.obtain_auth_token),
+    path('index/status/', views.index_status, name='index_status'),
+    path('client/', views.client_index, name='client_index'),
+    path('client/create', views.client_create, name='client_create'),
+    path('client/<int:client_id>/', views.client_info, name='client_info'),
+    path('client/<int:client_id>/status', views.client_status, name='client_status'),
+    path('client/<int:client_id>/update', views.client_update, name='client_update'),
+    path('client/<int:client_id>/remove', views.client_remove, name='client_remove'),
+    path('client/<int:client_id>/spiders/', views.spider_list, name='spider_list'),
+    path('spider/<int:spider_id>/status', views.spider_status, name='spider_status'),
+    path('spider/<int:spider_id>/update', views.spider_update, name='spider_update'),
+    path('spider/<int:spider_id>/start', views.spider_start, name='spider_start'),
+    path('spider/<int:spider_id>/monitor', views.spider_monitor, name='spider_monitor'),
+    path('spider/<str:spider_name>/feedback', views.spider_feedback, name='spider_feedback'),
+    path('spider/<int:spider_id>/cancel', views.job_cancel, name='job_cancel'),
+    path('spider/<int:spider_id>/jobs', views.job_list, name='job_list'),
+    path('spider/<int:spider_id>/job/<str:job_id>/log', views.job_log, name='job_log'),
+    path('project/index/', views.project_index, name='project_index'),
+    path('project/upload', views.project_upload, name='project_upload'),
+    path('project/<str:project_name>/build', views.project_build, name='project_build'),
+    path('client/<int:client_id>/project/<str:project_name>/deploy', views.project_deploy, name='project_deploy'),
+    path('project/<str:project_name>/tree', views.project_tree, name='project_tree'),
+    path('project/<str:project_name>/remove', views.project_remove, name='project_remove'),
+    path('project/<str:project_name>/withdraw', views.project_withdraw, name='project_withdraw'),
+    path('project/file/rename', views.project_file_rename, name='project_file_rename'),
+    path('project/file/delete', views.project_file_delete, name='project_file_delete'),
+    path('project/file/create', views.project_file_create, name='project_file_create'),
+    path('project/file/update', views.project_file_update, name='project_file_update'),
+    path('project/file/read', views.project_file_read, name='project_file_read'),
+    path('render', views.render_html, name='render_html'),
+]

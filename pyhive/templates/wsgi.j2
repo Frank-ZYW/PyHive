@@ -1,0 +1,22 @@
+"""
+WSGI config for server project.
+
+It exposes the WSGI callable as a module-level variable named ``application``.
+"""
+
+from os import environ
+from django.core.wsgi import get_wsgi_application
+
+# PyHive settings
+ENV_VARIABLE = {
+    # do not modify
+    'DJANGO_SETTINGS_MODULE': 'pyhive.server.server.settings',
+    # default False, don't run with debug turned on in production!
+    'APP_DEBUG': False
+}
+
+# add environment variable
+for key, value in ENV_VARIABLE.items():
+    environ.setdefault(key, str(value))
+
+application = get_wsgi_application()

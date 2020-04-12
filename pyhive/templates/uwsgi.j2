@@ -1,0 +1,15 @@
+[uwsgi]
+# do not modify
+chdir = {{ chdir }}
+wsgi-file = wsgi.py
+static-map = /static=static
+master = true
+vacuum = true
+# enable-threads = true
+
+# add or change your settings here
+socket = 127.0.0.1:3031
+processes = 2
+threads = 4
+pidfile = uwsgi.pid
+daemonize = uwsgi.log
