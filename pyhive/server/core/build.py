@@ -4,9 +4,9 @@ import glob
 import tempfile
 import shutil
 import logging
+from os.path import basename, dirname, join
 from pyhive.settings import PROJECTS_DIR, WORKPLACE
 from pyhive.server.core.config import config
-from os.path import join
 from subprocess import check_call
 from scrapy.utils.python import retry_on_eintr
 
@@ -54,8 +54,9 @@ def build_egg(project, version):
         d = tempfile.mkdtemp(prefix='pyhive-')
         o = open(os.path.join(d, 'stdout'), 'wb')
         e = open(os.path.join(d, 'stderr'), 'wb')
+        executable = check_executable(sys.executable)
         retry_on_eintr(
-            check_call, [sys.executable, 'setup.py', 'clean', '-a', 'bdist_egg', '-d', d], stdout=o, stderr=e
+            check_call, [executable, 'setup.py', 'clean', '-a', 'bdist_egg', '-d', d], stdout=o, stderr=e
         )
         o.close()
         e.close()
@@ -95,3 +96,12 @@ def create_default_setup_py(path, **kwargs):
         f.write(file)
         f.close()
         logger.debug('successfully created setup.py file at %s', path)
+
+
+def check_executable(executable):
+    """
+    fix executable under uwsgi application
+    :param executable: sys.executable
+    :return:
+    """
+    return join(dirname(executable), 'python')if basename(executable) == 'uwsgi' else executable
