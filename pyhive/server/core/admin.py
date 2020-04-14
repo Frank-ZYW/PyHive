@@ -23,7 +23,7 @@ class ProjectAdmin(admin.ModelAdmin):
     )
 
     def client_name(self, obj):
-        return '%s' % obj.client.name
+        return '%s' % obj.client.name if obj.client else '-'
 
 
 class SpiderAdmin(admin.ModelAdmin):
