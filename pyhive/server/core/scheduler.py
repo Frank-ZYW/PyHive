@@ -76,7 +76,7 @@ class SchedulerManager(Thread):
     heartbeat = SCHEDULER_HEARTBEAT * 60
     sql = "select * from core_spider where datetime(latest_run, " \
           "'+' || cast(next_run_duration as text) || ' day') < datetime('now') " \
-          "and available=TRUE and manual=FALSE;"
+          "and available=1 and manual=0;"
 
     def __init__(self):
         """
