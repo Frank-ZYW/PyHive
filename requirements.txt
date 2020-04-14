@@ -1,5 +1,6 @@
 jinja2
 requests
+uwsgi
 beautifulsoup4
 scrapy>=1.6
 django==2.2.10
