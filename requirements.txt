@@ -2,7 +2,7 @@ jinja2
 requests
 uwsgi
 beautifulsoup4
-scrapy>=1.6
+scrapy>=1.8
 django==2.2.10
 django-cors-headers==3.2.1
 python-scrapyd-api==2.1.2
