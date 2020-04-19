@@ -635,7 +635,7 @@ def job_log(request, spider_id, job_id):
         client = spider.project.client
         url = log_url(client.ip, client.port, spider.project.name, spider.name, job_id)
         try:
-            # get last 1000 bytes of log
+            # get last 2000 bytes of log
             response = requests.get(url, timeout=5, headers={
                 'Range': 'bytes=-2000'
             }, auth=(client.username, client.password) if client.auth else None)
