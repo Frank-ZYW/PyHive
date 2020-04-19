@@ -1,6 +1,6 @@
 # PyHive
 
-GUI Crawler Management Framework Based on WorkerBee, Django and Vue.js
+GUI Crawler Management Framework Based on [WorkerBee](https://github.com/Frank-ZYW/WorkerBee), Django and Vue.js
 
 PyHive is modified based on another Github project [Gerapy](https://github.com/Gerapy/Gerapy) Thanks for the contributors' great effort
 
