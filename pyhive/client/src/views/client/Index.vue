@@ -106,7 +106,7 @@
 				})
 			},
 			onDeleteClient(id) {
-				this.$http.post(this.formatString(this.$store.state.url.client.remove, {
+				this.$http.get(this.formatString(this.$store.state.url.client.remove, {
 					id: id
 				})).then(() => {
 					this.$message.success(this.$store.getters.$lang.messages.successDelete);
