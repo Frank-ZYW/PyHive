@@ -6,4 +6,4 @@ scrapy>=1.8
 django==2.2.10
 django-cors-headers==3.2.1
 python-scrapyd-api==2.1.2
-djangorestframework==3.11.0
+djangorestframework==3.11.2
